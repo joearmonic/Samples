@@ -1,12 +1,11 @@
 ﻿//-----------------------------------------------------------------------------
-// <copyright file="ValidatorExtensions.cs" company="EPapersoft">
+// <copyright file="IValidationProcessor{T}.cs" company="EPapersoft">
 //     Copyright ® EPapersoft 2016
 // </copyright>
 //-----------------------------------------------------------------------------
-namespace FraudPrevention.Business.Extensions
+namespace FraudPrevention.Interfaces
 {
-    public static class ValidatorExtensions
+    public interface IValidationProcessor<T>
     {
-        
     }
 }

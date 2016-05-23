@@ -17,6 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudPrevention.Interfaces"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudPrevention.DomainModel", "FraudPrevention.DomainModel\FraudPrevention.DomainModel.csproj", "{B37E34DE-77C6-48FA-922A-60A716893A8B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7A3AE000-D181-439C-B6C7-922BBAAD711E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudPrevention.Business.Tests", "FraudPrevention.Business.Tests\FraudPrevention.Business.Tests.csproj", "{14FDC919-256E-45CB-8B9B-A22C44B1999D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudPrevention.DomainModel.Tests", "FraudPrevention.DomainModel.Tests\FraudPrevention.DomainModel.Tests.csproj", "{690A9580-BAC1-46DC-9360-50F69EC4D3B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +45,20 @@ Global
 		{B37E34DE-77C6-48FA-922A-60A716893A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B37E34DE-77C6-48FA-922A-60A716893A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B37E34DE-77C6-48FA-922A-60A716893A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14FDC919-256E-45CB-8B9B-A22C44B1999D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FDC919-256E-45CB-8B9B-A22C44B1999D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FDC919-256E-45CB-8B9B-A22C44B1999D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FDC919-256E-45CB-8B9B-A22C44B1999D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690A9580-BAC1-46DC-9360-50F69EC4D3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690A9580-BAC1-46DC-9360-50F69EC4D3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690A9580-BAC1-46DC-9360-50F69EC4D3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690A9580-BAC1-46DC-9360-50F69EC4D3B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14FDC919-256E-45CB-8B9B-A22C44B1999D} = {7A3AE000-D181-439C-B6C7-922BBAAD711E}
+		{690A9580-BAC1-46DC-9360-50F69EC4D3B2} = {7A3AE000-D181-439C-B6C7-922BBAAD711E}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------------
-// <copyright file="MailValidatorFactory.cs" company="PayVision">
-//     Copyright ® PayVision 2016
+// <copyright file="MailValidatorFactory.cs" company="EPapersoft">
+//     Copyright ® EPapersoft 2016
 // </copyright>
 //-----------------------------------------------------------------------------
 namespace FraudPrevention.Business.Factories

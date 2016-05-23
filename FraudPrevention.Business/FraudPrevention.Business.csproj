@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardEqualityComparer.cs" />
+    <Compile Include="DealCardValidator.cs" />
     <Compile Include="AddressValidator.cs" />
     <Compile Include="Extensions\ValidatorExtensions.cs" />
+    <Compile Include="Factories\DealCardValidatorFactory.cs" />
     <Compile Include="Factories\AddressValidatorFactory.cs" />
     <Compile Include="Factories\MailValidatorFactory.cs" />
     <Compile Include="MailValidator.cs" />

@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------------
-// <copyright file="MailValidator.cs" company="PayVision">
-//     Copyright ® PayVision 2016
+// <copyright file="MailValidator.cs" company="EPapersoft">
+//     Copyright ® EPapersoft 2016
 // </copyright>
 //-----------------------------------------------------------------------------
 namespace FraudPrevention.Business
@@ -11,24 +11,43 @@ namespace FraudPrevention.Business
     using DomainModel;
     using Interfaces;
     using System.Linq;
-
+    using System.Configuration;
     public class MailValidator : IValidator
     {
+        private string pattern;
+
+        public MailValidator()
+        {
+            pattern = ConfigurationManager.AppSettings["mailPattern"];
+        }
         public IEnumerable<Order> GetFraudulentOrders(IEnumerable<Order> orders)
         {
-            string pattern = "([0-9a-z])(@)";// Config!!
-            Regex regEx = new Regex(pattern, RegexOptions.IgnoreCase);
-
-            foreach (Order order in orders)
+            List<Order> fraudulentOrders = new List<Order>();
+            for (int i = 0; i < orders.Count(); i++)
             {
-                //IEnumerable<Order> comparedOrders = orders.Skip()
-                bool IsFraudulent = regEx.Match(order.Email).Success;
+                Order pivotOrder = orders.Skip(i).First();
+                string pivotMail = RemoveIgnorableChars(pivotOrder.Email).ToUpper();
+                IEnumerable<Order> comparedOrders = orders.Skip(i+1).ToList();
+                foreach (Order suspectedOrder in comparedOrders)
+                {
+                    string suspectedMail = RemoveIgnorableChars(suspectedOrder.Email).ToUpper();
+                    if(pivotMail.Equals(suspectedMail))
+                    {
+                        fraudulentOrders.Add(suspectedOrder);
+                    }
+                }
             }
 
-            //To capitalize to avoid case sensitive issue
-            // and a regular expression pattern to solve A. and A+ cases.
-            // Reg Exp patterns will be loaded by config.
-            throw new NotImplementedException();
+            return fraudulentOrders;
+        }
+
+        private String RemoveIgnorableChars(String baseMail)
+        {
+            String cleanedMail;
+            Regex regEx = new Regex(this.pattern, RegexOptions.IgnoreCase);
+            cleanedMail = Regex.Replace(baseMail, this.pattern, String.Empty);
+
+            return cleanedMail;
         }
     }
 }

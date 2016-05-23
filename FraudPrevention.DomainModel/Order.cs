@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------------
-// <copyright file="Order.cs" company="PayVision">
-//     Copyright ® PayVision 2016
+// <copyright file="Order.cs" company="EPapersoft">
+//     Copyright ® EPapersoft 2016
 // </copyright>
 //-----------------------------------------------------------------------------
 namespace FraudPrevention.DomainModel

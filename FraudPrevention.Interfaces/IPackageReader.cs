@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace FraudPrevention.DomainModel
+namespace FraudPrevention.Interfaces
 {
-    class StateType
+    public interface IPackageReader<T>
     {
     }
 }

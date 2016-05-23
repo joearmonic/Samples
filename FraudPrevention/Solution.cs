@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using System.IO;
 using FraudPrevention.DomainModel;
 
-class Solution
+internal class Solution
 {
-    static void Main(String[] args)
+    private static void Main(String[] args)
     {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
         Console.WriteLine("Fraud prevention system started");
-        // N.B: Next sequence tries to emulate a complete order stream that maybe comes completed
-        // TODO: Create the stream previously.
-        using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+        using (StreamReader sw = new StreamReader("SampleInput.txt"))
         {
+            Console.SetIn(sw);
             int recordsCount = -1;
             List<Order> orders = new List<Order>();
 
             try
             {
-                while (!sr.EndOfStream)
+                while (!sw.EndOfStream)
                 {
                     // First time we need the number of records:
                     if (recordsCount == -1)
                     {
-                        var numberOfRecordsInput = sr.ReadLine();
+                        var numberOfRecordsInput = sw.ReadLine();
                         if (!int.TryParse(numberOfRecordsInput, out recordsCount))
                         {
                             // No number in this steps means an error
@@ -32,10 +30,11 @@ class Solution
                     }
                     else
                     {
+                        string lineRecord = sw.ReadLine();
                         // TODO: time to read orders and validate.
                         // Because I have not enough time I can't explain show my architecture:
                         // Its based on instantiate as orders as lines I found in the stream
-                        // and parse those orders using as Validator implementations I have 
+                        // and parse those orders using as Validator implementations I have
                         // by injecting them with Validator factory.
                         // To be fast enough I will user TPL to validate orders in differente theads
                         // and wait for its outcomes.
@@ -47,6 +46,10 @@ class Solution
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                sw.Close();
             }
         }
     }

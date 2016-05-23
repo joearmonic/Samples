@@ -1,5 +1,5 @@
 --------------------------------------
-PAYVISION HIRING PROGRAMMING CHALLENGE
+PROGRAMMING CHALLENGE
 --------------------------------------
 
 - Please read the following PDF file included in the package, where you can find the description of the programming challenge to solve:
