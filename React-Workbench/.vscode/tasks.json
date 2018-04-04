@@ -12,6 +12,16 @@
                 "${workspaceFolder}/TunstallCareChat_SLN/TunstallCareChat/TunstallCareChat.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/TunstallCareChat_SLN/TunstallCareChatDataAccess/TunstallCareChatDataAccess.csproj"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }

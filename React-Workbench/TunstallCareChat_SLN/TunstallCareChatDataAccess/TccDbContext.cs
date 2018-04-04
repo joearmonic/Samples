@@ -1,8 +1,9 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace TunstallCareChatDataAccess
 {
-    public class TccDbContext
+    public class TccDbContext : DbContext
     {
         
     }
