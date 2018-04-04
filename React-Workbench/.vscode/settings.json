@@ -1,3 +1,11 @@
 {
-    
+    "mssql.connections": [
+        {
+            "server": "{MADPE050}",
+            "database": "{master}",
+            "user": "{sa}",
+            "password": "{Tunstall2017}"
+        }
+    ],
+    "mssql.copyIncludeHeaders": true
 }

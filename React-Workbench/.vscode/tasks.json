@@ -9,7 +9,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/TunstallCareChat/TunstallCareChat.csproj"
+                "${workspaceFolder}/TunstallCareChat_SLN/TunstallCareChat/TunstallCareChat.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

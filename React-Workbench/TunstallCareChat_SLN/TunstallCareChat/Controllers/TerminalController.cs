@@ -12,7 +12,7 @@ namespace TunstallCareChat.Controllers
         [HttpGet("[action]")]
         public IEnumerable<TerminalModel> GetAll()
         {
-            return null;
+            return new List<TerminalModel>();
             // return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             // {
             //     DateFormatted = DateTime.Now.AddDays(index).ToString("d"),

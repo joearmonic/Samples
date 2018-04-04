@@ -10,9 +10,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/TunstallCareChat/bin/Debug/netcoreapp2.0/TunstallCareChat.dll",
+            "program": "${workspaceFolder}/TunstallCareChat_SLN/TunstallCareChat/bin/Debug/netcoreapp2.0/TunstallCareChat.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/TunstallCareChat",
+            "cwd": "${workspaceFolder}/TunstallCareChat_SLN/TunstallCareChat",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
@@ -33,7 +33,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceFolder}/TunstallCareChat/ClientApp/public"
+                "/Views": "${workspaceFolder}/TunstallCareChat_SLN/TunstallCareChat/ClientApp/public"
             }
         },
         {
