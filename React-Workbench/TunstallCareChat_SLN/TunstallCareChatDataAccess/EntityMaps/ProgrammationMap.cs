@@ -1,19 +1,17 @@
 namespace TCC.Web.Services.DAL.TerminalProgramming
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using TunstallCareChatDataAccess.Models;
 
-    [Table("TCC_Terminals", Schema = "Admin")]
-    public class TerminalMap : IEntityTypeConfiguration<TerminalModel>
+    [Table("TCC_Programmations", Schema = "Admin")]
+    public class ProgrammationMap: IEntityTypeConfiguration<ProgrammationModel>
     {
-        public void Configure(EntityTypeBuilder<TerminalModel> builder)
+        public void Configure(EntityTypeBuilder<ProgrammationModel> builder)
         {
-            builder.Property(b => b.Number).HasMaxLength(14).IsRequired(true);
+          builder.Property(b => b.Value).HasMaxLength(254);
         }
     }
 }

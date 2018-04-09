@@ -4,10 +4,12 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using TunstallCareChatDataAccess.Models;
 
     [Table("TCC_ProgramOrders", Schema = "Admin")]
-    public partial class ProgramOrder
+    public class ProgramOrder: IEntityTypeConfiguration<ProgramOrderModel>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ProgramOrder()
@@ -36,5 +38,10 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         public virtual ICollection<Programmation> Programmations { get; set; }
 
         public virtual TerminalModel Terminal { get; set; }
+
+        public void Configure(EntityTypeBuilder<ProgramOrderModel> builder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

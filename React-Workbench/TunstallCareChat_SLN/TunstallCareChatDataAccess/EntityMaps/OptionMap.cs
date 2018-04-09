@@ -2,9 +2,12 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using TunstallCareChatDataAccess.Models;
 
     [Table("TCC_Options", Schema = "Admin")]
-    public partial class Option
+    public class Option : IEntityTypeConfiguration<OptionModel>
     {
         public int Id { get; set; }
 
@@ -19,5 +22,10 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         public virtual Descriptor Descriptor { get; set; }
 
         public virtual Parameter Parameters { get; set; }
+
+        public void Configure(EntityTypeBuilder<OptionModel> builder)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

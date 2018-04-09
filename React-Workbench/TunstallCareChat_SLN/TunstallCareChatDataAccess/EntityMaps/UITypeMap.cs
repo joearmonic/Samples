@@ -4,10 +4,10 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    
+    using Microsoft.EntityFrameworkCore;
 
     [Table("TCC_UITypes", Schema = "Admin")]
-    public partial class UIType
+    public class UIType: IEntityTypeConfiguration<UITypeModel>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UIType()
@@ -28,5 +28,10 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parameter> Parameters { get; set; }
+
+        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<UITypeModel> builder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

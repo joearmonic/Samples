@@ -4,11 +4,13 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using TunstallCareChatDataAccess.EntityMaps;
     using TunstallCareChatDataAccess.Models;
 
     [Table("TCC_Descriptors", Schema = "Admin")]
-    public class Descriptor
+    public class Descriptor: IEntityTypeConfiguration<DescriptorModel>
     {
         public Descriptor()
         {
@@ -36,5 +38,15 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         public virtual ICollection<Parameter> Parameters1 { get; set; }
 
         public virtual ICollection<Translations> Translations { get; set; }
+
+        public void Configure(EntityTypeBuilder<ConfigurationModel> builder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Configure(EntityTypeBuilder<DescriptorModel> builder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

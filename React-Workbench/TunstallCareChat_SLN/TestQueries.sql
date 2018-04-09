@@ -4,5 +4,7 @@ SELECT * FROM TUNApps.Admin.TCC_Descriptors;
 SELECT * FROM TUNApps.Admin.TCC_Languages;
 SELECT * FROM TUNApps.Admin.TCC_Descriptors;
 SELECT * FROM TUNApps.Admin.TCC_Translations;
-use TUNApps;
+SELECT * FROM TUNApps.Admin.TCC_Programmations;
 select * from Admin.TCC_Terminals;
+select * from Admin.TCC_;
+

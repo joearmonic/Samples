@@ -4,5 +4,17 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"sqltools.connections": [
+			{
+				"name": "MADPE050 LOCAL",
+				"server": "MADPE050",
+				"port": 16066,
+				"database": "TUNApps",
+				"username": "sa",
+				"Password": "Tunstall2017",
+				"dialect": "MSSQL"
+			}
+		]
+	}
 }

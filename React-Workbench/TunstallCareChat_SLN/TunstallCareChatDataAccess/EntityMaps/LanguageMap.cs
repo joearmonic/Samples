@@ -4,10 +4,12 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using TunstallCareChatDataAccess.Models;
 
     [Table("TCC_Languages", Schema = "Admin")]
-    public partial class Language
+    public class Language : IEntityTypeConfiguration<LanguageModel>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Language()
@@ -25,5 +27,15 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Locale> Locales { get; set; }
+
+        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<ConfigurationModel> builder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Configure(EntityTypeBuilder<LanguageModel> builder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
