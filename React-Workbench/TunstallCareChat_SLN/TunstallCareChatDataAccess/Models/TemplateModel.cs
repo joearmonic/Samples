@@ -4,9 +4,7 @@ namespace TunstallCareChatDataAccess.Models
 {
      public class TemplateModel
      {
-         public int TemplateId { get; set; }
-
-        public TemplateModel Template { get; set; }
+         public int Id { get; set; }
 
         public int DescriptionId { get; set; }
         
@@ -16,7 +14,7 @@ namespace TunstallCareChatDataAccess.Models
         
         public VersionModel Version { get; set; }
 
-        public IEnumerable<ParameterModel> Parameters { get; set; }
+        public IEnumerable<TemplateParameterModel> TemplateParameters { get; set; }
         
         public IEnumerable<ConfigurationModel> Configurations { get; set; }
 

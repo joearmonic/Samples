@@ -16,22 +16,23 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
 
         public DbSet<ConfigurationModel> Configurations { get; set; }
         public DbSet<TemplateModel> ConfigurationTemplates { get; set; }
-        public DbSet<Descriptor> Descriptors { get; set; }
-        public DbSet<Language> Languages { get; set; }
-        public DbSet<Locale> Locales { get; set; }
-        public DbSet<Option> Options { get; set; }
-        public DbSet<ParameterCategory> ParameterCategories { get; set; }
-        public DbSet<Parameter> Parameters { get; set; }
-        public DbSet<Programmation> Programmations { get; set; }
-        public DbSet<ProgramOrder> ProgramOrders { get; set; }
-        public DbSet<TemplateParameter> TemplateParameters { get; set; }
+        public DbSet<DescriptorModel> Descriptors { get; set; }
+        public DbSet<LanguageModel> Languages { get; set; }
+        public DbSet<LocaleModel> Locales { get; set; }
+        public DbSet<OptionModel> Options { get; set; }
+        public DbSet<ParameterCategoryModel> ParameterCategories { get; set; }
+        public DbSet<ParameterModel> Parameters { get; set; }
+        public DbSet<ProgrammationModel> Programmations { get; set; }
+        public DbSet<ProgramOrderModel> ProgramOrders { get; set; }
+        public DbSet<TemplateParameterModel> TemplateParameters { get; set; }
         public DbSet<TerminalModel> Terminals { get; set; }
-        public DbSet<UIType> UITypes { get; set; }
-        public DbSet<Version> Versions { get; set; }
-        public DbSet<Translations> Translations { get; set; }
+        public DbSet<UITypeModel> UITypes { get; set; }
+        public DbSet<VersionModel> Versions { get; set; }
+        public DbSet<TranslationModel> Translations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Configurations
             modelBuilder.Entity<ConfigurationModel>()
             .HasKey(conf => new { conf.TerminalId, conf.TemplateId, conf.ParameterId });
 
@@ -39,13 +40,14 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .Property(e => e.Value)
                 .IsUnicode(false);
 
+            // Templates
             modelBuilder.Entity<TemplateModel>()
                 .HasMany(e => e.Configurations)
                 .WithOne(e => e.ConfigurationTemplate)
                 .HasForeignKey(e => e.TemplateId);
 
             modelBuilder.Entity<TemplateModel>()
-                .HasMany(e => e.Parameters)
+                .HasMany(e => e.TemplateParameters)
                 .WithOne(e => e.Template)
                 .HasForeignKey(e => e.TemplateId);
 
@@ -54,6 +56,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .WithOne(e => e.ConfigurationTemplate)
                 .HasForeignKey(e => e.TemplateId);
 
+            // Descriptor
             modelBuilder.Entity<Descriptor>()
                 .Property(e => e.Meta)
                 .IsUnicode(false);
@@ -63,37 +66,37 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .WithOne(e => e.DescriptionDescriptor)
                 .HasForeignKey(e => e.DescriptionId);
 
-            modelBuilder.Entity<Descriptor>()
+            modelBuilder.Entity<DescriptorModel>()
                 .HasMany(e => e.Options)
                 .WithOne(e => e.Descriptor)
                 .HasForeignKey(e => e.NameId);
 
-            modelBuilder.Entity<Descriptor>()
+            modelBuilder.Entity<DescriptorModel>()
                 .HasMany(e => e.ParameterCategories)
-                .WithOne(e => e.Descriptor)
+                .WithOne(e => e.TitleDescriptor)
                 .HasForeignKey(e => e.TitleId);
 
-            modelBuilder.Entity<Descriptor>()
+            modelBuilder.Entity<DescriptorModel>()
                 .HasMany(e => e.Parameters)
                 .WithOne(e => e.TitleDescriptor)
                 .HasForeignKey(e => e.DescriptionId);
 
-            modelBuilder.Entity<Descriptor>()
+            modelBuilder.Entity<DescriptorModel>()
                 .HasMany(e => e.Parameters1)
                 .WithOne(e => e.DescriptionDescriptor)
                 .HasForeignKey(e => e.TitleId);
 
-            modelBuilder.Entity<Descriptor>()
+            modelBuilder.Entity<DescriptorModel>()
                 .HasMany(e => e.Translations)
                 .WithOne(e => e.Descriptor)
                 .HasForeignKey(e => e.DescriptorId);
 
-            modelBuilder.Entity<Language>()
+            modelBuilder.Entity<LanguageModel>()
                 .Property(e => e.LangCode)
                 .HasMaxLength(2)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Language>()
+            modelBuilder.Entity<LanguageModel>()
                 .HasMany(e => e.Locales)
                 .WithOne(e => e.Language)
                 .HasForeignKey(e => e.LangCodeId);
@@ -102,27 +105,32 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .Property(e => e.Value)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ParameterCategory>()
+            modelBuilder.Entity<ParameterCategoryModel>()
                 .HasMany(e => e.Parameters)
                 .WithOne(e => e.ParameterCategory)
                 .HasForeignKey(e => e.CategoryId);
 
-            modelBuilder.Entity<Parameter>()
+            // Parameter
+            modelBuilder.Entity<ParameterModel>()
+            .Property(b => b.Id).ValueGeneratedNever();
+            
+            modelBuilder.Entity<ParameterModel>()
                 .HasMany(e => e.Options)
                 .WithOne(e => e.Parameters)
                 .HasForeignKey(e => e.ParameterId);
 
-            modelBuilder.Entity<Parameter>()
+            modelBuilder.Entity<ParameterModel>()
                 .HasMany(e => e.Programmations)
                 .WithOne(e => e.Parameter)
                 .HasForeignKey(e => e.ParameterId);
 
-            modelBuilder.Entity<Parameter>()
+            modelBuilder.Entity<ParameterModel>()
                 .HasMany(e => e.TemplateParameters)
                 .WithOne(e => e.Parameter)
                 .HasForeignKey(e => e.ParameterId);
 
-            modelBuilder.Entity<Programmation>()
+            // Programmation
+            modelBuilder.Entity<ProgrammationModel>()
                 .Property(e => e.Value)
                 .IsUnicode(false);
 
@@ -135,12 +143,13 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .WithOne(e => e.ProgramOrder)
                 .HasForeignKey(e => e.ProgramOrderId);
 
-            modelBuilder.Entity<TemplateParameter>()
+            modelBuilder.Entity<TemplateParameterModel>()
             .HasKey(tp => new { tp.ParameterId, tp.TemplateId });
 
-            modelBuilder.Entity<TemplateParameter>()
+            modelBuilder.Entity<TemplateParameterModel>()
                 .Property(e => e.Value)
                 .IsUnicode(false);
+                
             // Terminal
             modelBuilder.Entity<TerminalModel>()
                 .Property(e => e.Number)
@@ -162,35 +171,35 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .HasForeignKey(e => e.TerminalId);
 
             // UI Type
-            modelBuilder.Entity<UIType>()
+            modelBuilder.Entity<UITypeModel>()
                 .Property(e => e.ReflectionType)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<UIType>()
+            modelBuilder.Entity<UITypeModel>()
                 .Property(e => e.ValueType)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<UIType>()
+            modelBuilder.Entity<UITypeModel>()
                 .HasMany(e => e.Parameters)
                 .WithOne(e => e.UIType)
                 .HasForeignKey(e => e.UITypeId);
 
-            modelBuilder.Entity<Version>()
+            modelBuilder.Entity<VersionModel>()
                 .Property(e => e.VersionNumber)
                 .IsUnicode(false);
 
             modelBuilder.Entity<VersionModel>()
                 .HasMany(e => e.Terminals)
                 .WithOne(e => e.Version)
-                .HasForeignKey(e => e.VersionId);
+                .HasForeignKey(e => e.VersionId);z
 
 
-            modelBuilder.Entity<Locale>()
+            modelBuilder.Entity<LocaleModel>()
                 .HasMany(e => e.Descriptors)
                 .WithOne(e => e.Locale)
                 .HasForeignKey(e => e.LocaleId);
 
-            modelBuilder.Entity<Translations>()
+            modelBuilder.Entity<TranslatiosModel>()
             .HasKey(tran => new { tran.DescriptorId, tran.LocaleId });
         }
 

@@ -21,7 +21,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
 
         public virtual Descriptor Descriptor { get; set; }
 
-        public virtual Parameter Parameters { get; set; }
+        public virtual ParameterMap Parameters { get; set; }
 
         public void Configure(EntityTypeBuilder<OptionModel> builder)
         {

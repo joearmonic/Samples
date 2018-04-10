@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace TunstallCareChatDataAccess.Models
 {
@@ -9,17 +10,33 @@ namespace TunstallCareChatDataAccess.Models
     public class ParameterModel
     {
         public int Id { get; set; }
-        public String Key { get; set; }
-        public String Name { get; set; }
-        public String Summary { get; set; }
-        public int MaxLength { get; set; }
-        public int Priority { get; set; }
-        public String UIType { get; set; }
-        public ParameterCategoryModel Category { get; set; }
 
-        public TemplateModel Template { get; set; }
+        public int DescriptionId { get; set; }
 
-        public int TemplateId { get; set; }
+        public DescriptorModel DescriptionDescriptor { get; set; }
         
+        public int? UITypeId { get; set; }
+        
+        public UITypeModel UIType { get; set; }
+        
+        public int CategoryId { get; set; }
+
+        public ParameterCategoryModel ParameterCategory { get; set; }
+        
+        public int TitleId { get; set; }
+
+        public DescriptorModel TitleDescriptor { get; set; }
+
+        public byte Priority { get; set; }
+
+        public short MobileKey { get; set; }
+
+        public short Length { get; set; }
+
+        public ICollection<OptionModel> Options { get; set; }
+
+        public ICollection<ProgrammationModel> Programmations { get; set; }
+        
+        public ICollection<TemplateParameterModel> TemplateParameters { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UIType()
         {
-            Parameters = new HashSet<Parameter>();
+            Parameters = new HashSet<ParameterMap>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -27,7 +27,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         public string ValueType { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Parameter> Parameters { get; set; }
+        public virtual ICollection<ParameterMap> Parameters { get; set; }
 
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<UITypeModel> builder)
         {

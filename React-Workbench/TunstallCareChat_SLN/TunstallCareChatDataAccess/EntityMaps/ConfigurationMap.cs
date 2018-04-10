@@ -13,7 +13,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     {
         public void Configure(EntityTypeBuilder<ConfigurationModel> builder)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

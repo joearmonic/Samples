@@ -12,7 +12,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ParameterCategory()
         {
-            Parameters = new HashSet<Parameter>();
+            Parameters = new HashSet<ParameterMap>();
         }
 
         public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         public virtual Descriptor Descriptor { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Parameter> Parameters { get; set; }
+        public virtual ICollection<ParameterMap> Parameters { get; set; }
 
         public void Configure(EntityTypeBuilder<ParameterCategoryModel> builder)
         {
