@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/React-Workbench/TunstallCareChat_SLN/.vs/TunstallCareChat/v15/Server/sqlite3
+/React-Workbench/TunstallCareChat_SLN/TunstallCareChatDataAccess/bin/Debug/netstandard2.0
+/React-Workbench/TunstallCareChat_SLN/TunstallCareChatDataAccess/obj/Debug/netstandard2.0
+/React-Workbench/TunstallCareChat_SLN/TunstallCareChatDataAccess/obj/Release/netstandard2.0
+/React-Workbench/TunstallCareChat_SLN
