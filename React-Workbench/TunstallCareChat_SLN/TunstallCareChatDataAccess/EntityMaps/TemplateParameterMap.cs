@@ -10,7 +10,6 @@ namespace TunstallCareChatDataAccess.EntityMaps
     {
         public void Configure(EntityTypeBuilder<TemplateParameterModel> builder)
         {
-            
         }
     }
 }

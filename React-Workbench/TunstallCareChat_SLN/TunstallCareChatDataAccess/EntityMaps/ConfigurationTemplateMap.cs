@@ -9,11 +9,11 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using TunstallCareChatDataAccess.Models;
 
     [Table("TCC_ConfigurationTemplates", Schema = "Admin")]
-    public class ConfigurationTemplateMap : IEntityTypeConfiguration<ConfigurationModel>
+    public class ConfigurationTemplateMap : IEntityTypeConfiguration<TemplateModel>
     {
-        public void Configure(EntityTypeBuilder<ConfigurationModel> builder)
+        public void Configure(EntityTypeBuilder<TemplateModel> builder)
         {
-            builder.Property(b => b.Value).HasMaxLength(254).IsRequired(true);
+            builder.HasKey(b => b.Id);
         }
     }
 }

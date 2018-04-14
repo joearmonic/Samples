@@ -14,6 +14,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
         public void Configure(EntityTypeBuilder<TerminalModel> builder)
         {
             builder.Property(b => b.Number).HasMaxLength(14).IsRequired(true);
+            builder.HasKey(b => b.Id);
         }
     }
 }

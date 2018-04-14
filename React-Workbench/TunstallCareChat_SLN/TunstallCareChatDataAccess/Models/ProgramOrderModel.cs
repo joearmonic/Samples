@@ -47,7 +47,7 @@ namespace TunstallCareChatDataAccess.Models
         /// </value>
         public Boolean Direction { get; set; }
 
-public int TerminalId { get; set; }
+        public int TerminalId { get; set; }
 
         /// <summary>
         /// Gets or sets the terminal characteristics that belongs to the program order.
@@ -57,8 +57,8 @@ public int TerminalId { get; set; }
         /// </value>
         public TerminalModel Terminal { get; set; }
 
-        public int OrderCode { get; set; }
+        public int? OrderCode { get; set; }
 
-        public IEnumerable<ProgrammationModel> Programmations { get; set; }
+        public ICollection<ProgrammationModel> Programmations { get; set; }
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TunstallCareChatDataAccess.Models
 {
     public class ProgrammationModel
@@ -13,5 +15,9 @@ namespace TunstallCareChatDataAccess.Models
         public TerminalModel Terminal { get; set; }
 
         public string Value { get; set; }
+
+        public int ProgramOrderId { get; set; }
+        
+        public ProgramOrderModel ProgramOrder { get; set; }
     }
 }

@@ -7,26 +7,11 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using TunstallCareChatDataAccess.Models;
 
     [Table("TCC_ParameterCategories", Schema = "Admin")]
-    public class ParameterCategory: IEntityTypeConfiguration<ParameterCategoryModel>
+    public class ParameterCategoryMap : IEntityTypeConfiguration<ParameterCategoryModel>
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ParameterCategory()
-        {
-            Parameters = new HashSet<ParameterMap>();
-        }
-
-        public int Id { get; set; }
-
-        public int TitleId { get; set; }
-
-        public virtual Descriptor Descriptor { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ParameterMap> Parameters { get; set; }
-
         public void Configure(EntityTypeBuilder<ParameterCategoryModel> builder)
         {
-            throw new System.NotImplementedException();
+            builder.HasKey(b => b.Id);
         }
     }
 }

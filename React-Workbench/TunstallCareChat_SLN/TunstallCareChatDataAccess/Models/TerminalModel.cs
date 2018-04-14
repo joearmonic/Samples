@@ -16,10 +16,6 @@ namespace TunstallCareChatDataAccess.Models
 
         public CentreModel ControlCentre { get; set; }
 
-        public int VersionId { get; set; }
-        
-        public VersionModel Version { get; set; }
-       
         public ICollection<ConfigurationModel> Configurations { get; set; }
         
         public TemplateModel ConfigurationTemplate { get; set; }

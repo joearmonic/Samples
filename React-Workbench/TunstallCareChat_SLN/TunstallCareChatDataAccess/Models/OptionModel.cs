@@ -10,10 +10,10 @@ namespace TunstallCareChatDataAccess.Models
 
         public int NameId { get; set; }
 
+        public  DescriptorModel NameDescriptor { get; set; }
+
         public int ParameterId { get; set; }
 
-        public  DescriptorModel Descriptor { get; set; }
-
-        public  ParameterModel Parameters { get; set; }
+        public  ParameterModel Parameter { get; set; }
     }
 }

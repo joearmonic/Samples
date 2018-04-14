@@ -11,11 +11,7 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     [Table("TCC_Locales", Schema = "Admin")]
     public class Locale : IEntityTypeConfiguration<LocaleModel>
     {
-        public Locale()
-        {
-            Descriptors = new HashSet<Translations>();
-        }
-
+       
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
@@ -35,7 +31,14 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
 
         public void Configure(EntityTypeBuilder<LocaleModel> builder)
         {
-            throw new System.NotImplementedException();
+            builder.HasKey(b => b.Id);
+            builder.Property(b => b.Id).ValueGeneratedNever();
+            builder.Property(b => b.LocaleString)
+            .HasMaxLength(254)
+            .IsUnicode(false)
+            .IsRequired(false);
+
+            
         }
     }
 }

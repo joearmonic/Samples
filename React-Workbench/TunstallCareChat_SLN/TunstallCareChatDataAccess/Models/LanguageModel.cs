@@ -10,6 +10,6 @@ namespace TunstallCareChatDataAccess.Models
 
         public bool IsDefault { get; set; }
 
-        public IEnumerable<LocaleModel> Locales { get; set; }
+        public ICollection<LocaleModel> Locales { get; set; }
     }
 }

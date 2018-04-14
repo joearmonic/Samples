@@ -8,6 +8,6 @@ namespace TunstallCareChatDataAccess.Models
         
          public string Version { get; set; }
 
-         public ICollection<TerminalModel> Terminals { get; set; }
+         public ICollection<TemplateModel> Templates { get; set; }
      }
 }

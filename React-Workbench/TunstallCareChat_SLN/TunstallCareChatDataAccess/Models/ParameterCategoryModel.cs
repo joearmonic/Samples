@@ -6,7 +6,11 @@ namespace TunstallCareChatDataAccess.Models
    public class ParameterCategoryModel
     {
         public int Id { get; set; }
-        public String Title { get; set; }
-        public IEnumerable<ParameterModel> Parameters { get; set; }
+        
+        public int TitleId { get; set; }
+
+        public DescriptorModel TitleDescriptor { get; set; }
+        
+        public ICollection<ParameterModel> Parameters { get; set; }
     }
 }

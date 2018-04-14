@@ -4,7 +4,7 @@ namespace TunstallCareChatDataAccess.Models
 {
     public class LocaleModel
     {
-     public int Id { get; set; }
+        public int Id { get; set; }
 
         public string LocaleString { get; set; }
 
@@ -12,6 +12,6 @@ namespace TunstallCareChatDataAccess.Models
 
         public LanguageModel Language { get; set; }
 
-        public virtual IEnumerable<DescriptorModel> Descriptors { get; set; }
+        public ICollection<TranslationModel> Translations { get; set; }
     }
 }

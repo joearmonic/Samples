@@ -9,6 +9,7 @@ namespace TunstallCareChatDataAccess.Models
         public int TemplateId { get; set; }
 
         public TemplateModel Template { get; set; }
+        
         public string Value { get; set; }
     }
 }

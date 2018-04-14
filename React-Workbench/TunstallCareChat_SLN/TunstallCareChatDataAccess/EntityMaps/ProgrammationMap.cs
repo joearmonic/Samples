@@ -7,11 +7,12 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using TunstallCareChatDataAccess.Models;
 
     [Table("TCC_Programmations", Schema = "Admin")]
-    public class ProgrammationMap: IEntityTypeConfiguration<ProgrammationModel>
+    public class ProgrammationMap : IEntityTypeConfiguration<ProgrammationModel>
     {
         public void Configure(EntityTypeBuilder<ProgrammationModel> builder)
         {
-          builder.Property(b => b.Value).HasMaxLength(254);
+            builder.HasKey(b => b.Id);
+            builder.Property(b => b.Value).HasMaxLength(254);
         }
     }
 }

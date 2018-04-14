@@ -8,19 +8,16 @@ namespace TunstallCareChatDataAccess.Models
 
         public string Meta { get; set; }
 
-        public IEnumerable<TemplateModel> ConfigurationTemplates { get; set; }
+        public ICollection<TemplateModel> ConfigurationTemplates { get; set; }
 
-        public IEnumerable<OptionModel> Options { get; set; }
+        public ICollection<OptionModel> Options { get; set; }
 
-        public IEnumerable<ParameterCategoryModel> ParameterCategories { get; set; }
-
+        public ICollection<ParameterCategoryModel> ParameterCategories { get; set; }
        
-        public IEnumerable<ParameterModel> Parameters { get; set; }
+        public ICollection<ParameterModel> ParametersOfTitles { get; set; }
 
+        public ICollection<ParameterModel> ParametersOfDescriptions { get; set; }
        
-        public virtual IEnumerable<ParameterModel> Parameters1 { get; set; }
-
-       
-        public virtual IEnumerable<LocaleModel> Locales { get; set; }
+        public ICollection<TranslationModel> Translations { get; set; }
     }
 }
