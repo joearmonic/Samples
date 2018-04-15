@@ -8,37 +8,22 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     using TunstallCareChatDataAccess.EntityMaps;
     using TunstallCareChatDataAccess.Models;
 
-    [Table("TCC_Locales", Schema = "Admin")]
-    public class Locale : IEntityTypeConfiguration<LocaleModel>
+    public class LocaleMap : IEntityTypeConfiguration<LocaleModel>
     {
-       
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
-
-        [StringLength(254)]
-        public string LocaleString { get; set; }
-
-        public int? LangCodeId { get; set; }
-
-        public Language Language { get; set; }
-
-        public ICollection<Translations> Descriptors { get; set; }
-
-        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<ConfigurationModel> builder)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Configure(EntityTypeBuilder<LocaleModel> builder)
         {
+            builder.ToTable("TCC_Locales", "Admin");
             builder.HasKey(b => b.Id);
             builder.Property(b => b.Id).ValueGeneratedNever();
             builder.Property(b => b.LocaleString)
-            .HasMaxLength(254)
-            .IsUnicode(false)
-            .IsRequired(false);
+                .HasMaxLength(254)
+                .IsUnicode(false)
+                .IsRequired(false);
 
-            
+            builder
+                .HasMany(e => e.Translations)
+                .WithOne(e => e.Locale)
+                .HasForeignKey(e => e.LocaleId);
         }
     }
 }

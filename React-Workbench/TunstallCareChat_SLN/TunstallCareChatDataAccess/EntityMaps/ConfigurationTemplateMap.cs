@@ -13,7 +13,23 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
     {
         public void Configure(EntityTypeBuilder<TemplateModel> builder)
         {
+            builder.ToTable("TCC_ConfigurationTemplates", "Admin");
             builder.HasKey(b => b.Id);
+            
+            builder
+                .HasMany(e => e.Configurations)
+                .WithOne(e => e.ConfigurationTemplate)
+                .HasForeignKey(e => e.TemplateId);
+
+            builder
+                .HasMany(e => e.TemplateParameters)
+                .WithOne(e => e.Template)
+                .HasForeignKey(e => e.TemplateId);
+
+           builder
+                .HasMany(e => e.Terminals)
+                .WithOne(e => e.ConfigurationTemplate)
+                .HasForeignKey(e => e.TemplateId);            
         }
     }
 }

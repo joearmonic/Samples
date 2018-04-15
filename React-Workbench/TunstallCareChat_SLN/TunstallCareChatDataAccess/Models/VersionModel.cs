@@ -6,7 +6,7 @@ namespace TunstallCareChatDataAccess.Models
      {
          public int Id { get; set; }
         
-         public string Version { get; set; }
+         public string Number { get; set; }
 
          public ICollection<TemplateModel> Templates { get; set; }
      }

@@ -6,13 +6,12 @@ using TunstallCareChatDataAccess.Models;
 
 namespace TunstallCareChatDataAccess.EntityMaps
 {
-    
-    [Table("TCC_Translations", Schema = "Admin")]  
-    public class Translations: IEntityTypeConfiguration<TranslationModel>
+    public class TranslationMap : IEntityTypeConfiguration<TranslationModel>
     {
         public void Configure(EntityTypeBuilder<TranslationModel> builder)
         {
-            builder.HasKey(b => new {b.DescriptorId, b.LocaleId});
+            builder.ToTable("TCC_Translations", "Admin");
+            builder.HasKey(b => new { b.DescriptorId, b.LocaleId });
         }
     }
 }

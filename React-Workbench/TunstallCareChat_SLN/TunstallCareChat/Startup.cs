@@ -22,7 +22,9 @@ namespace TunstallCareChat
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("Tcc");
-            services.AddDbContext<TCCDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<TCCDbContext>(
+                options => 
+                options.UseSqlServer(connectionString));
 
             services.AddAutoMapper();
 

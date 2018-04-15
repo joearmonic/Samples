@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace TunstallCareChatDataAccess.Models
 {
@@ -6,10 +7,12 @@ namespace TunstallCareChatDataAccess.Models
     {
         public int Id { get; set; }
 
-        public String Description { get; set; }
+        public String Name { get; set; }
 
         public String IP { get; set; }
 
-        public int DatabaseId { get; set; }
+        public int? BackupId { get; set; }
+
+        public ICollection<TerminalModel> Terminals { get; set; }
     }
 }

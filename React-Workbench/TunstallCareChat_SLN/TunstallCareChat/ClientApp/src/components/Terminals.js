@@ -22,15 +22,16 @@ export class Terminals extends React.Component {
               <tr>
                 <th>Terminal Id</th>
                 <th>Phone Number</th>
-                <th>Template Id</th>
+                <th>Template Version</th>
                 <th>Centre Id</th>
               </tr>
             </thead>
             <tbody>
               {terminals.map(terminal =>
-                <tr key={terminal.TerminalId}>
-                  <td>{terminal.Number}</td>
-                  <td>{terminal.TemplateId}</td>
+                <tr key={terminal.id}>
+                  <td>{terminal.id}</td>
+                  <td>{terminal.number}</td>
+                  <td>{terminal.templateName}</td>
                   <td>{terminal.CentreId}</td>
                 </tr>
               )}

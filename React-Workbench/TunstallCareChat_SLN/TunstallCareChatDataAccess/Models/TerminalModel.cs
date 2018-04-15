@@ -9,8 +9,8 @@ namespace TunstallCareChatDataAccess.Models
         public string Number { get; set; }
         
         public int? TemplateId { get; set; }
-
-        public TemplateModel Template { get; set; }
+        
+        public TemplateModel ConfigurationTemplate { get; set; }
         
         public int? CentreId { get; set; }
 
@@ -18,7 +18,6 @@ namespace TunstallCareChatDataAccess.Models
 
         public ICollection<ConfigurationModel> Configurations { get; set; }
         
-        public TemplateModel ConfigurationTemplate { get; set; }
 
         public ICollection<ProgrammationModel> Programmations { get; set; }
 
