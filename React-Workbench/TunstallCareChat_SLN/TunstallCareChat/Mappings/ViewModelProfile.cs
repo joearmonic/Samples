@@ -14,7 +14,7 @@ namespace TunstallCareChat.Mappings
                 (src,dest, member, ctx) => 
                 member = src.ConfigurationTemplate.Version.Number
             ))
-            .ForMember(tm => tm.ControlCentre, dto => dto.ResolveUsing(
+            .ForMember(tm => tm.ControlCentre, dto => dto.MapFrom(
                 src => src.ControlCentre.Name
             ));
         }

@@ -16,6 +16,7 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/fetchdata' component={FetchData} />
         <Route path='/Terminals' component={Terminals} />
+        <Route path='/Terminal' component={Terminal} />
       </Layout>
     );
   }

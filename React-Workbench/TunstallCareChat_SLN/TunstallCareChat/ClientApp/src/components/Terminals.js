@@ -1,5 +1,6 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export class Terminals extends React.Component {
     displayName = Terminals.name;
@@ -17,22 +18,22 @@ export class Terminals extends React.Component {
 
     static renderTable(terminals) {
         return (
-          <Table className='table'>
+          <Table className='table table-hover'>
             <thead>
               <tr>
                 <th>Terminal Id</th>
                 <th>Phone Number</th>
                 <th>Template Version</th>
-                <th>Centre Id</th>
+                <th>Control Centre</th>
               </tr>
             </thead>
             <tbody>
               {terminals.map(terminal =>
                 <tr key={terminal.id}>
-                  <td>{terminal.id}</td>
+                  <td><Link to={'/terminal/' + terminal.id}>{terminal.id}</Link></td>
                   <td>{terminal.number}</td>
                   <td>{terminal.templateName}</td>
-                  <td>{terminal.CentreId}</td>
+                  <td>{terminal.controlCentre}</td>
                 </tr>
               )}
             </tbody>
@@ -48,7 +49,6 @@ export class Terminals extends React.Component {
         return (
           <div>
             <h1>TCC Terminals.<small> Devices installed and Programmables.</small></h1>
-            <p>This component demonstrates fetching data from the server.</p>
             {contents}
           </div>
         );
