@@ -11,7 +11,17 @@ namespace TunstallCareChatDataAccess.EntityMaps
     {
         public void Configure(EntityTypeBuilder<CentreModel> builder)
         {
-            builder.ToTable("TIB_CENTRE_DEF", "dbo");            
+            builder
+                .ToTable("TIB_CENTRE_DEF", "dbo").HasKey(item => item.Id); 
+            builder
+                .Property(item => item.Id).HasColumnName("TIB_CENTRE_DEF").IsRequired();
+            builder.Property(item => item.IP).HasColumnName("IP").IsRequired().HasMaxLength(32);
+            builder.Property(item => item.Name).HasColumnName("TIB_CENTRE_NAME").IsRequired().HasMaxLength(32);
+            builder.Property(item => item.BackupId).HasColumnName("ID_CENTRE_BCK_REF");
+
+            builder
+            .HasMany(item => item.Terminals)
+            .WithOne(item => item.ControlCentre).HasForeignKey(item => item.CentreId);
         }
     }
 }

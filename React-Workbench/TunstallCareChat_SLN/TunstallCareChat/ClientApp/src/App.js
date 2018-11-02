@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Terminals } from './components/Terminals';
+import Terminal from './components/Terminal';
 import { Counter } from './components/Counter';
 
 export default class App extends Component {
@@ -16,6 +17,7 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/fetchdata' component={FetchData} />
         <Route path='/Terminals' component={Terminals} />        
+        <Route path='/Terminal/:id' component={Terminal} />        
       </Layout>
     );
   }

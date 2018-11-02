@@ -35,6 +35,10 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .HasMany(e => e.ProgramOrders)
                 .WithOne(e => e.Terminal)
                 .HasForeignKey(e => e.TerminalId);
+
+            builder
+                .HasOne(t => t.ControlCentre)
+                .WithMany(t => t.Terminals);
         }
     }
 }

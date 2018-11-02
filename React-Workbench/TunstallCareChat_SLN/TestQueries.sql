@@ -5,6 +5,7 @@ SELECT * FROM TUNApps.Admin.TCC_Languages;
 SELECT * FROM TUNApps.Admin.TCC_Descriptors;
 SELECT * FROM TUNApps.Admin.TCC_Translations;
 SELECT * FROM TUNApps.Admin.TCC_Programmations;
+
 use TUNApps
 select * from Admin.TCC_Terminals;
 --update admin.tcc_terminals set centreid = 1 where id = 1
