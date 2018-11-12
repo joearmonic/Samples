@@ -4,3 +4,17 @@
         padding-top: 50px;
     }
 }
+
+.wireframe, .wireframe * {
+    outline: 1px dashed red;
+}
+
+.top-actionbar{
+    padding: 8px 0px 10px 0px;
+    border-bottom: 1px inset grey;
+}
+
+.device-article {
+    padding-top: 10px;
+    margin-bottom:15px;
+}

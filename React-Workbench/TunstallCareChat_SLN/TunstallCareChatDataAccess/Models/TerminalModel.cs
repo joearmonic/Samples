@@ -18,7 +18,6 @@ namespace TunstallCareChatDataAccess.Models
 
         public ICollection<ConfigurationModel> Configurations { get; set; }
         
-
         public ICollection<ProgrammationModel> Programmations { get; set; }
 
         public ICollection<ProgramOrderModel> ProgramOrders { get; set; }

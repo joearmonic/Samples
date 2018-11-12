@@ -41,7 +41,7 @@ export class Terminals extends React.Component {
             .then(data => {
                 this.setState({ terminals: data, loading: false });
             });
-    };
+    }
 
     render() {
         let contents = this.state.loading
