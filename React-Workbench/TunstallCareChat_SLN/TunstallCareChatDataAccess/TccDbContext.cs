@@ -63,12 +63,6 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
                 .IsUnicode(false)
                 .HasMaxLength(230);
 
-            // Programmations
-            modelBuilder.Entity<ProgrammationModel>()
-                .Property(e => e.Value)
-                .IsUnicode(false)
-                .HasMaxLength(254);
-
             // TemplateParameters
             modelBuilder.Entity<TemplateParameterModel>()
             .HasKey(tp => new { tp.ParameterId, tp.TemplateId });
@@ -105,15 +99,6 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
             // ConfigurationTemplates
             modelBuilder.ApplyConfiguration(new ConfigurationTemplateMap());
 
-            // Configurations
-            modelBuilder.Entity<ConfigurationModel>()
-            .HasKey(conf => new { conf.TerminalId, conf.TemplateId, conf.ParameterId });
-
-            modelBuilder.Entity<ConfigurationModel>()
-                .Property(e => e.Value)
-                .IsUnicode(false)
-                .HasMaxLength(254)
-                .IsRequired(true);
 
             // Versions
             modelBuilder.ApplyConfiguration(new VersionMap());
@@ -132,6 +117,19 @@ namespace TCC.Web.Services.DAL.TerminalProgramming
 
             // ControlCentres
             modelBuilder.ApplyConfiguration(new CentreMap());
+
+            // Programmations
+            modelBuilder.ApplyConfiguration(new ProgrammationMap());
+
+            // Configurations
+            modelBuilder.Entity<ConfigurationModel>()
+            .HasKey(conf => new { conf.TerminalId, conf.TemplateId, conf.ParameterId });
+
+            modelBuilder.Entity<ConfigurationModel>()
+                .Property(e => e.Value)
+                .IsUnicode(false)
+                .HasMaxLength(254)
+                .IsRequired(true);
         }
 
         // public virtual int OnACKDumpProgrammations(Nullable<int> orderId)

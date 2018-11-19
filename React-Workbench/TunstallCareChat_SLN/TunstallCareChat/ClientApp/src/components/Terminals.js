@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { dataService } from '../stores/dataService';
 
 export class Terminals extends React.Component {
     static renderTable(terminals) {
@@ -17,12 +18,12 @@ export class Terminals extends React.Component {
                 <tbody>
                     {
                         terminals.map(terminal =>
-                            <tr key={terminal.id}>
+                            (<tr key={terminal.id}>
                                 <td><Link to={'/terminal/' + terminal.id}>{terminal.id}</Link></td>
                                 <td>{terminal.number}</td>
                                 <td>{terminal.templateName}</td>
                                 <td>{terminal.controlCentre}</td>
-                            </tr>
+                            </tr>)
                         )
                     }
                 </tbody>
@@ -36,11 +37,9 @@ export class Terminals extends React.Component {
         super(props);
         this.state = { terminals: [], loading: true };
 
-        fetch('api/Terminal/GetAll')
-            .then(response => response.json())
-            .then(data => {
-                this.setState({ terminals: data, loading: false });
-            });
+        dataService.getJSON('api/Terminal/GetAll', data => {
+            this.setState({ terminals: data, loading: false });
+        });
     }
 
     render() {

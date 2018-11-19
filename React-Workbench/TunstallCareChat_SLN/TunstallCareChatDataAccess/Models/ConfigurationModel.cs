@@ -4,6 +4,7 @@ namespace TunstallCareChatDataAccess.Models
 {
     public class ConfigurationModel
     {
+
         public int TemplateId { get; set; }
 
         public int TerminalId { get; set; }
